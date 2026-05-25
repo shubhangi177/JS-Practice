@@ -28,3 +28,24 @@ const myFunction = function(){
 }
 
 console.log(typeof myFunction);// Return type Object Function
+
+//++++++++++++++++++++++++++
+
+//Stack (Primitive), Heap(Non-Primitive)
+
+let teamName = "Dhol"
+let coachName = teamName
+coachName = "Soul"
+console.log(teamName);
+console.log(coachName);
+
+let userOne = {
+    email:"123@gmail.com",
+    upi: "user@111"
+}
+
+let userTwo = userOne
+
+userTwo.email = "shub@google.com"
+
+console.log(userOne.email);
