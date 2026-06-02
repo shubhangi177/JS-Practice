@@ -17,4 +17,10 @@ console.log(ar2);
 
 console.log(Array.isArray("Shubh"))
 console.log(Array.from("Shubh"))
-console.log(Array.from({name: "shubh"}));
+console.log(Array.from({name: "shubh"}));//interesting(empty array is returned)
+
+let marks1 = 40;
+let marks2 = 50;
+let marks3 = 55;
+console.log(Array.of(marks1, marks2, marks3));
+
