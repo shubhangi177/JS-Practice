@@ -51,3 +51,36 @@ console.log(Object.entries(tinderUser));
 
 console.log(tinderUser.hasOwnProperty('isLoggedIn'));
 
+const course ={
+    coursename:"js in english",
+    price: "999",
+    courseInstructor:"shubh"
+}
+
+//course.courseInstructor
+
+//const {courseInstructor} = course
+//console.log(courseInstructor);
+
+const {courseInstructor:instructor} = course
+console.log(instructor);
+
+//object destructuring in react
+// const navbar= ({company})=>{
+
+// }
+// navbar(company="shubh")
+
+//api
+//json
+// {
+//     "name":"shubh",
+//     "coursename":"english",
+//     "price":"free"
+// }
+
+[
+    {},
+    {},
+    {}
+]
