@@ -15,3 +15,31 @@ function loginUserName(username="shu"){
 //console.log(res);
 
 console.log(loginUserName());//undefineed
+
+function calculateCartPrice(val1, val2,...nums1){// rest operator(combines values in array)
+    return nums1
+}
+console.log(calculateCartPrice(200, 400, 500,2000));
+
+const user = {
+    username: "shub",
+    price: 200
+}
+function handleObject(anyobject){
+    console.log(`Username is ${anyobject.username} and price is ${anyobject.price}`)
+}
+
+// handleObject(user)
+handleObject({
+    username: "sita",
+    price:1999
+})
+
+const arr = [2,3,4,5]
+
+function returnSecondValue(getArray){
+    return getArray[1]
+}
+console.log(returnSecondValue(arr));
+console.log(returnSecondValue([1,4,6,2]));
+
