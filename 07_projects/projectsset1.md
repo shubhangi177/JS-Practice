@@ -14,7 +14,6 @@ buttons.forEach(function(b){
       body.style.backgroundColor=e.target.id
   })
 })
-
 ```
 
 ## project 2
@@ -40,5 +39,26 @@ form.addEventListener('submit', function(e){
     else result.innerHTML = `<span>You are overweight ${bmi}</span>`
   }
 })
+```
 
+
+## project 3
+```javascript
+const clock = document.getElementById('clock');
+// const clock = document.querySelector('#clock')
+
+setInterval(function () {
+  let date = new Date();
+  // console.log(date.toLocaleTimeString());
+  clock.innerHTML = date.toLocaleTimeString();
+}, 1000);
+
+//to show time on loading the page
+const localTime = document.querySelector('#clock');
+function updateClock(){
+  localTime.innerHTML = new Date().toLocaleTimeString();
+}
+updateClock()
+
+setInterval(updateClock, 1000 )
 ```
