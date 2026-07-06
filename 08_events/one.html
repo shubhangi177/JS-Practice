@@ -8,7 +8,7 @@
 <body style="background-color: #414141; color : aliceblue" >
     <h2>Amazing images</h2>
     <div>
-        <ul>
+        <ul id = "images">
            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
             <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
             <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
@@ -26,12 +26,59 @@
     //attachEvent()
     //jQuery - on
 
-    document.getElementById('owl').addEventListener('click', function(){
-        alert("owl clicked again")
-    })
-    document.getElementById('owl').addEventListener('click', function(e){
-        console.log(e);
-    })
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    //this is not a good method
+    // document.getElementById('owl').addEventListener('click', function(){
+    //     alert("owl clicked again")
+    // })
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // },true)
+
+    
+
+    // If the Argument in addEventListener is:
+    //1.
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // },true)
+    // this is called Capturing: outer elements are triggered first then inner
+
+    //2.
+    //document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // },false)
+    // this is called Bubbling: inner elements are triggered first then outer
+    // To stop propagation to Outer Elements then(stopping bubbling up):
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("clicked inside owl");
+    //     e.stopPropagation()
+    // },false)
+
+    //To prevent default action:
+    // document.getElementById('google').addEventListener('click', function(e){
+    //     console.log("google clicked")
+    //     e.preventDefault();
+    // })
+
+
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName)
+        if(e.target.tagName == 'IMG'){
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+
+
+        //removeIt.parentNode.removeChild(removeIt) // kiskaChildRemoveKarna.removeChild(ChildKaName)
+    },false)
 </script>
 </html>
 
