@@ -153,3 +153,55 @@ function newGame() {
   });
 }
 ```
+# project 5
+```javascript
+const insert = document.querySelector('#insert')
+document.addEventListener('keydown', function(e){
+  insert.innerHTML =`
+  <table>
+    <tr>
+      <th>Key</th>
+      <th>Code</th>
+      <th>Keycode</th>
+    </tr>
+    
+    <tr>
+      <td>${e.key === ' '? 'Space': e.key}</td>
+      <td>${e.code}</td>
+      <td>${e.keyCode}</td>
+    </tr>
+  </table>
+  `;
+})
+```
+
+# project 6
+```javascript
+const randomColor = function(){
+  const hex = "0123456789ABCDEF"
+  let colors = "#";
+  for(let i = 0; i < 6; i++){
+    colors+=hex[Math.floor(Math.random()*16)];
+  }
+  return colors;
+}
+
+let intervalId = null;
+const startChangingColor = function(){
+  if(!intervalId)
+    intervalId = setInterval(changeColor,1000)
+    function changeColor(){
+      document.body.style.backgroundColor = randomColor()
+    }
+}
+
+const stopChangingColor = function(){
+  clearInterval(intervalId)
+  intervalId = null
+}
+document.querySelector('#start').addEventListener('click', startChangingColor)
+
+document.querySelector('#stop').addEventListener('click', stopChangingColor)
+```
+
+
