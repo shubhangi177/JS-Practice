@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #212121;" >
+    <div class = "container">
+        <button>Show Profile</button>
+    </div>
+
+    <div class = "card">
+        <img src="" alt="Profile Image" id="avatar">
+        <h2 id ="name">Name:</h2>
+        <p id = "followersCnt">Followers:</p>
+    </div>
+
+
+<!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+</body>
+<script>
+    
+    
+    // console.log(xhr.readyState);
+    // xhr.send()
+
+    document.querySelector('button').addEventListener('click',showProfileContent)
+    
+    function showProfileContent(){
+        const card = document.querySelector('.card')
+        const requestUrl = "https://api.github.com/users/hiteshchoudhary"
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange=function(){
+            console.log(xhr.readyState);
+            if(xhr.readyState===4){
+                const data = JSON.parse(this.responseText)
+
+                card.style.display = "block"
+
+                const avatarUrl = data.avatar_url;
+                const userName = data.name;
+                const followers = data.followers;
+                
+                const avatar = document.querySelector('#avatar')
+                avatar.src = avatarUrl
+                
+                const name = document.querySelector('#name')
+                name.innerText = `Name:${userName}`
+
+                const followersCnt = document.querySelector('#followersCnt')
+                followersCnt.innerText = `Followers: ${followers}`;
+                
+            }
+        } 
+        xhr.send()  
+    }
+    
+
+</script>
+</html>
