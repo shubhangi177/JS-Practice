@@ -12,19 +12,20 @@
     class React{
         constructor(){
             this.library = "React"
-            this.server = "https://ubiquitous-zebra-jrjjqx6v796qcp7g5-5500.app.github.dev/10_classes_and_oop/bind.html"
+            this.server = "https://urban-fiesta-4qjjwx45v6x635xp5-5500.app.github.dev/10_classes_and_oop/bind.html"
             
             //requirement
             document
                 .querySelector('button')
-                .addEventListener('click',this.handleClick)
+                .addEventListener('click',this.handleClick.bind(this)) //helps to send class properties and methond along with button refrence
         }
         handleClick(){
             console.log("button Clicked");
-            console.log("this.server");
-            
-            
+            console.log(this);    
+            console.log(this.server);    
         }
     }
+
+    const app = new React()
 </script>
 </html>
