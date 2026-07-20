@@ -1,6 +1,6 @@
 const User = {
-    _email = 'hsh@s.com',
-    _password = "234",
+    _email: 'hsh@s.com',
+    _password: "234",
 
     get email(){
         return this._email.toUpperCase()
@@ -9,3 +9,5 @@ const User = {
         this._email = value
     }
 }
+const shub = Object.create(User)
+console.log(shub.email);
